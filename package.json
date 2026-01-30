@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "react",
   "scripts": {
+    "start": "parcel ep1/index.html",
+    "build":"parcel build ep1/index.html",
     "test": "jest"
   },
   "author": "rekha",
