@@ -4,7 +4,7 @@
   "description": "react",
   "scripts": {
     "start": "parcel index.html",
-    "build":"parcel build index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "rekha",
@@ -14,9 +14,10 @@
   },
   "dependencies": {
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^6.30.3"
   },
-  "browserslist":[
+  "browserslist": [
     "last 2 versions"
   ]
 }
