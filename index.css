@@ -80,3 +80,9 @@
     height: 100px;
     object-fit: cover;
 }
+
+.user-card {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
