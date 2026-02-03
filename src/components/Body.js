@@ -2,6 +2,8 @@ import RestaurantCard from "./RestaurantCard";
 import {useState, useEffect} from "react";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 // fetch data & set to state 
 // shimmer ui
 const Body = () => {
@@ -19,6 +21,14 @@ const Body = () => {
         const json = await data.json();
         setResFilteredList(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         setFilteredList(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+    }
+
+    const onlineStatus = useOnlineStatus();
+
+    if(onlineStatus === false) {
+        return (
+            <h1>you are offline. Please check your internet!!</h1>
+        )
     }
 
     if(resFilteredList.length === 0) {
