@@ -1,14 +1,19 @@
-import {Restaurant_URL} from "../utils/constants";
+import {RESTAURANT_URL_NAMASTE_DEV} from "../utils/constants";
 import {useEffect, useState} from "react";
 
-const userRestaurantMenu = (id) => {
+const useRestaurantMenu = (id) => {
 
     const [resDetails, setResDetails] = useState(null);
     const fetchData = async () => {
-        const data = await fetch(Restaurant_URL + id + "/menu");
+        const data = await fetch(RESTAURANT_URL_NAMASTE_DEV + id);
         const json = await data.json();
-        setResDetails(json);
+        //filter the cards with ItemCategory in regular
+        const allCards = json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
         
+        const filteredCards=allCards.filter((c)=>c?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+        
+        setResDetails(filteredCards);
+        //console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards);
     }
 
     useEffect(()=>{fetchData()},[]);
@@ -16,4 +21,4 @@ const userRestaurantMenu = (id) => {
     return resDetails;
 }
 
-export default userRestaurantMenu;
+export default useRestaurantMenu;

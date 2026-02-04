@@ -1,23 +1,34 @@
 
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useState, useEffect} from "react";
 import { createRoot } from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 //import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
-import Restaurant from "./components/Restaurant";
+import RestaurantMenu from "./components/RestaurantMenu";
 import {createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 //import Grocery from "./components/Grocery";
+import UserContext from "./utils/UserContext";
 
 const Grocery = lazy(()=>import("./components/Grocery"));
 const About = lazy(()=>import("./components/About"));
 
   const App = () => {
+
+    const [userName, setuserName]=useState();
+
+    useEffect(()=>{
+      //api call & get the user name & set the set variable
+      setuserName("Rekha Jakhar");
+    },[]);
+
       return (
         <div>
+          <UserContext.Provider value={{loggedInUserName:userName, setuserName}}>
             <Header/>
             <Outlet/>
+          </UserContext.Provider>
         </div>
     )
 }
@@ -41,7 +52,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:id",
-        element: <Restaurant/>
+        element: <RestaurantMenu/>
       },
       {
         path: "/grocery",

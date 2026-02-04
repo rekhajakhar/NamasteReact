@@ -4,3 +4,9 @@ export const LOGO_URL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALIAAACUC
 export const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 export const Restaurant_URL ="https://fakerestaurantapi.runasp.net/api/Restaurant/";
+
+export const RESTAURANT_URL_NAMASTE_DEV="https://namastedev.com/api/v1/listRestaurantMenu/";
+
+export const FETCH_RESTAURANTS_URL ="https://namastedev.com/api/v1/listRestaurants";
+
+export const FETCH_RESTAURANT_URL_SWIGGY="https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.913195536637573&lng=77.61544469743967&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
