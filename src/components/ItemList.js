@@ -1,13 +1,24 @@
+import {useDispatch} from "react-redux";
+import {addItem} from "../utils/cartSlice";
+
 const ItemList=({items})=>{
-    console.log(items);
+
+    const dispatch = useDispatch();
+
+    const handleAddItem = (item) => {
+        //console.log(item);
+        dispatch(addItem(item));
+    }
+
     return (
         <div>
+            
             {items.map((item)=>(
                 <div key={item?.card?.info?.id} className="my-2 border-b-1 bg-gray-100">
                     <div>
                     <span className="text-xs">{item?.card?.info?.imageId}</span>
                     <div>
-                        <button>Add +</button>
+                        <button onClick={() => handleAddItem(item)}>Add +</button>
                     </div>
                     </div>
                     <div className="my-2">

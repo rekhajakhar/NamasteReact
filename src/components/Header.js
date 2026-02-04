@@ -4,11 +4,16 @@ import {useState, useContext} from "react";
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import {useSelector} from "react-redux";
+
+
 
 const Header = () => {
     const [isLoggedin, setIsloggedIn] = useState("Login")
     const onlineStatus = useOnlineStatus();
     const {loggedInUserName} = useContext(UserContext);
+
+    const cartItems =  useSelector((store)=>store.cart.items);
 
     return (
         <div className="flex flex-wrap border-2 p-4 m-4 justify-between">
@@ -27,7 +32,7 @@ const Header = () => {
                     <li className="m-4 p-4"><Link to ="/about">About Us</Link></li>
                     <li className="m-4 p-4"><Link to ="/contact">Contact US</Link></li>
                     <li className="m-4 p-4"><Link to="/grocery">Grocery</Link></li>
-                    <li className="m-4 p-4">Cart</li>
+                    <li className="m-4 p-4 font-bold"><Link to="/cart">Cart - ({cartItems.length} - items)</Link></li>
                     <button className="className=m-4 p-4" onClick={() => {
                         isLoggedin === "Login" ? setIsloggedIn("Logout") : setIsloggedIn("Login")
                     }}>{isLoggedin}</button>

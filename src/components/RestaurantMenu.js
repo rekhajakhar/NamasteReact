@@ -15,7 +15,7 @@ const RestaurantMenu = () => {
     if(resDetails === null) {
         return <Shimmer />
     }
-    console.log(resDetails);
+    //console.log(resDetails);
     //const {name,description,price, imageId}=resDetails?.card?.info;
     return (
         <div>

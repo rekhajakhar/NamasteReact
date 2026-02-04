@@ -25,7 +25,7 @@ const Body = () => {
     const fetchData = async () => {
         const data = await fetch(FETCH_RESTAURANTS_URL);
         const json = await data.json();
-        console.log(json);
+
         setResFilteredList(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
         setFilteredList(json.data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
     }
@@ -48,7 +48,7 @@ const Body = () => {
                 <div className="m4 p4 flex-wrap ">
                 <input type="text" className="border-2 rounded-lg" value={searchText} onChange={(e) => {setSearchText(e.target.value)}}/>
                 <button className="px-4 m-4 rounded-lg bg-blue-500" onClick={() => {
-                    console.log(searchText);
+                    
                     const filteredList = resFilteredList.filter((res)=>{ return  res.info.name.toLowerCase().includes(searchText.toLowerCase())});
                     setFilteredList(filteredList);
                     }}>Search</button>
