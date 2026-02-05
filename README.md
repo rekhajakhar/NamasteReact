@@ -17,3 +17,12 @@ footer
     address
     ..
 */
+
+# redux
+- install @reduxjs/toolkit and react-redux
+- create store
+- create slice
+- connect both
+- connect the redux to our app
+- dispatch the actions
+- subscribe to the slice via selector
