@@ -46,7 +46,7 @@ const Body = () => {
         <div>
             <div className="flex flex-wrap m-4 p-4">
                 <div className="m4 p4 flex-wrap ">
-                <input type="text" className="border-2 rounded-lg" value={searchText} onChange={(e) => {setSearchText(e.target.value)}}/>
+                <input data-testid="searchInputBox" type="text" className="border-2 rounded-lg" value={searchText} onChange={(e) => {setSearchText(e.target.value)}}/>
                 <button className="px-4 m-4 rounded-lg bg-blue-500" onClick={() => {
                     
                     const filteredList = resFilteredList.filter((res)=>{ return  res.info.name.toLowerCase().includes(searchText.toLowerCase())});

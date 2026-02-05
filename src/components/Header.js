@@ -32,7 +32,7 @@ const Header = () => {
                     <li className="m-4 p-4"><Link to ="/about">About Us</Link></li>
                     <li className="m-4 p-4"><Link to ="/contact">Contact US</Link></li>
                     <li className="m-4 p-4"><Link to="/grocery">Grocery</Link></li>
-                    <li className="m-4 p-4 font-bold"><Link to="/cart">Cart - ({cartItems.length} - items)</Link></li>
+                    <li data-testid="cartHeader" className="m-4 p-4 font-bold"><Link to="/cart">Cart - ({cartItems.length} - items)</Link></li>
                     <button className="className=m-4 p-4" onClick={() => {
                         isLoggedin === "Login" ? setIsloggedIn("Logout") : setIsloggedIn("Login")
                     }}>{isLoggedin}</button>

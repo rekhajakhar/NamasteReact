@@ -4,10 +4,11 @@ import {useContext} from "react";
 
 const RestaurantCard = (props) => {
     const {resData} = props;
+    //console.log(resData);
     const {name, cuisines, avgRating, sla} = resData?.info;
     const {loggedInUserName} = useContext(UserContext);
     return (
-        <div>
+        <div data-testid="resCard">
             <div className="bg-gray-100 m-4 p-4 rounded-lg hover:bg-gray-200">
                 <img className="w-56 h-56 rounded-lg "
                 alt="res-logo"
